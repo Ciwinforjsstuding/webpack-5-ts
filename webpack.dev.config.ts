@@ -3,9 +3,6 @@ const { Configuration, HotModuleReplacementPlugin } = require("webpack");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const ESLintPlugin = require("eslint-webpack-plugin");
-// import { resolve, join } from 'path';
-// import { Configuration, HotModuleReplacementPlugin } from 'webpack';
-// import HtmlWebpackPlugin from 'html-webpack-plugin'
 
 const config: typeof Configuration = {
     mode: "development",
@@ -32,6 +29,14 @@ const config: typeof Configuration = {
                         ],
                     },
                 },
+            },
+            {
+                test: /\.s[ac]ss$/i,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "sass-loader",
+                ],
             },
         ]
     },
@@ -62,6 +67,3 @@ const config: typeof Configuration = {
 }
 
 module.exports = config;
-
-// module.exports = config
-// export default config;
